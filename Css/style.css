@@ -144,6 +144,9 @@ a {
 .mg-bottom-300 {
   margin-bottom: 3rem;
 }
+.mg-bottom-400 {
+  margin-bottom: 4rem;
+}
 
 li {
   list-style-type: none;
