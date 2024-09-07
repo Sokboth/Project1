@@ -258,7 +258,7 @@ li {
   color: var(--color-black-300);
   letter-spacing: 2px;
 }
-.nav-link > a:hover{
+.nav-link > a:hover {
   color: var(--color-orange-200);
 }
 
@@ -417,7 +417,7 @@ li {
 /* Development section */
 .heading-development {
   margin-top: 20px;
-  padding: 2rem;
+  padding: 1rem;
   border: 1px solid var(--color-black-200);
   border-radius: 15px;
   transition: all 0.5s ease-in;
@@ -425,7 +425,6 @@ li {
 .heading-development:hover {
   margin-top: 20px;
   border: 1px solid var(--color-orange-200);
-  padding: 2rem;
   border-radius: 15px;
 }
 
@@ -449,7 +448,6 @@ li {
   padding: 15px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   flex: 1 1 calc(50% - 20px);
-
   display: flex;
   align-items: center;
   transition: transform 0.3s ease-in-out;
@@ -469,7 +467,7 @@ li {
 .article-deve:nth-child(even):hover {
   background: linear-gradient(
     to left,
-    /* Change the direction on hover */ var(--color-orange-300),
+    var(--color-orange-300),
     var(--color-white-100)
   );
 }
@@ -478,7 +476,6 @@ li {
   flex-shrink: 0;
   width: 50px;
   height: 50px;
-  margin-right: 15px;
 }
 
 .article-container img {
@@ -488,13 +485,13 @@ li {
 }
 
 .name-deve h3 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-200);
   margin-bottom: 5px;
   color: #333;
 }
 
 .name-deve p {
-  font-size: 1rem;
+  font-size: var(--font-size-100);
   color: #888;
 }
 .heading-development > h2 {
@@ -503,8 +500,60 @@ li {
 .heading-development > h2:hover {
   color: var(--color-orange-300);
 }
+.header-project {
+  text-align: center;
+}
 
-@media screen and (min-width: 650px) {
+/*  */
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 60px;
+  gap: 20px;
+}
+.card-detail {
+  border: 1px solid var(--color-white-100);
+  padding: 10px 10px 20px 10px;
+  border-radius: 16px;
+}
+.project-img {
+  border-radius: var(--border-radius-300); /* Ensure this variable is defined */
+  background-size: cover;
+
+  overflow: hidden;
+}
+
+.project-img > img {
+  width: 100%; /* Ensures the image takes up the full width of the container */
+}
+.dv-btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.live-deme {
+  background-color: var(--color-white-300);
+  font-size: var(--font-size-100);
+  min-width: 100px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.live-deme:hover {
+  background-color: var(--color-orange-200);
+  border: none;
+  outline: none;
+}
+
+.card-detail > h3 {
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
   .name-nav {
     position: fixed;
     top: 71.6px;
@@ -546,9 +595,41 @@ li {
     display: flex;
     gap: 30px;
   }
-  .name-deve h3 {
-    font-size: var(--font-size-400);
+
+  .name-deve > h3 {
+    font-size: var(--font-size-100);
     margin-bottom: 5px;
     color: #333;
+  }
+  .name-deve p {
+    font-size: 9px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  .class-size{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  /* .project-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  } */
+  .project-cards{
+    grid-template-columns: repeat(2, 270px);
+  }
+}
+@media screen and (min-width: 768px) {
+   .project-cards{
+    grid-template-columns: repeat(2, 270px);
+  }
+}
+@media screen and (min-width: 992px) {
+   .project-cards{
+    grid-template-columns: repeat(3, 270px);
   }
 }
