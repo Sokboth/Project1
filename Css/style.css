@@ -34,6 +34,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -217,7 +218,7 @@ li {
   width: 100%;
   position: fixed;
   z-index: 1;
-  top: 20px;
+  top: 30px;
   padding: 0 20px;
 }
 .name-nav {
@@ -242,10 +243,14 @@ li {
   flex-direction: column;
   width: 100%;
   padding: 2rem;
+  color: transparent;
+  
 }
 
 .nav-list.active {
   display: flex;
+  backdrop-filter: blur(10px);
+ 
 }
 
 .nav-link {
@@ -415,6 +420,13 @@ li {
 }
 
 /* Development section */
+.class-frontend-bankend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
 .heading-development {
   margin-top: 20px;
   padding: 1rem;
@@ -437,19 +449,18 @@ li {
 
 /* Article container */
 .class-article-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
 .article-deve {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   background-color: var(--color-white-300);
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  flex: 1 1 calc(50% - 20px);
-  display: flex;
-  align-items: center;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -509,13 +520,17 @@ li {
 .project-cards {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  padding: 60px;
-  gap: 20px;
+  padding: 30px;
+  gap: 30px;
 }
 .card-detail {
-  border: 1px solid var(--color-white-100);
+  border: 1px solid var(--color-black-200);
   padding: 10px 10px 20px 10px;
   border-radius: 16px;
+  transition: all 0.2s ease-in-out;
+}
+.card-detail:hover {
+  border: 1px solid var(--color-orange-200);
 }
 .project-img {
   border-radius: var(--border-radius-300); /* Ensure this variable is defined */
@@ -554,13 +569,6 @@ li {
 }
 
 @media screen and (min-width: 600px) {
-  .name-nav {
-    position: fixed;
-    top: 71.6px;
-  }
-  .name-nav:hover {
-    color: var(--color-orange-100);
-  }
   .nav-list {
     position: fixed;
     left: 50%;
@@ -573,6 +581,7 @@ li {
     justify-content: flex-end;
     gap: 1.7rem;
     backdrop-filter: blur(10px);
+    border-radius: 50px;
   }
 
   .nav-link {
@@ -591,9 +600,14 @@ li {
   .class-ex {
     flex-direction: row;
   }
+  /* .class-frontend-bankend {
+    flex-direction: row;
+    flex-wrap: wrap;
+  } */
   .class-frontend-bankend {
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
   }
 
   .name-deve > h3 {
@@ -606,7 +620,7 @@ li {
     margin-bottom: 5px;
     color: #333;
   }
-  .class-size{
+  .class-size {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -619,17 +633,41 @@ li {
     justify-content: center;
     align-items: center;
   } */
-  .project-cards{
+  .project-cards {
     grid-template-columns: repeat(2, 270px);
+  }
+  .name-nav {
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
-   .project-cards{
+  .name-nav {
+    display: block;
+    position: fixed;
+    top: 71.6px;
+    /* /* z-index: 1;  */
+  }
+  .name-nav:hover {
+    color: var(--color-orange-100);
+  }
+  .class-frontend-bankend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .project-cards {
     grid-template-columns: repeat(2, 270px);
   }
 }
 @media screen and (min-width: 992px) {
-   .project-cards{
+  .class-frontend-bankend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .project-cards {
     grid-template-columns: repeat(3, 270px);
   }
 }
