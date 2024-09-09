@@ -244,13 +244,11 @@ li {
   width: 100%;
   padding: 2rem;
   color: transparent;
-  
 }
 
 .nav-list.active {
   display: flex;
   backdrop-filter: blur(10px);
- 
 }
 
 .nav-link {
@@ -309,18 +307,38 @@ li {
 
 /* Card about  */
 .cards-experience {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
 }
 
 .card-about {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 15px;
-  border: 1px solid var(--color-orange-300);
+  border: 1px solid var(--color-black-200);
   border-radius: 15px;
+  color: var(--color-white-300);
+  transition: all 0.4s ease-in;
+}
+.card-about:hover {
+  background: linear-gradient(
+    to right,
+    var(--color-black-200),
+    var(--color-black-100)
+  );
+  border: none;
+}
+.card-about:nth-child(even):hover {
+  background: linear-gradient(
+    to left,
+    var(--color-black-100),
+    var(--color-black-200)
+  );
+}
+.card-about > p {
+  transition: all 0.5s ease-in;
+}
+.card-about > p:hover {
+  transform: scale(0.9);
 }
 
 .experience-class {
@@ -333,19 +351,6 @@ li {
   color: var(--color-orange-200);
 }
 
-.about-me {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem;
-}
-.class-ex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .get-to {
   color: var(--color-black-300);
   transition: all 0.2s ease-in;
@@ -356,15 +361,23 @@ li {
 
 .imges-about {
   width: 330px;
-  height: 300px;
+  height: 330px;
   border-radius: var(--border-radius-300);
   overflow: hidden;
-  background-color: var(--bg-transparent);
-  backdrop-filter: blur(10px);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .imges-about > img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.imges-about:hover {
+  transform: scale(1.1);
+  transition: transform 2s ease-in-out;
 }
 
 .header-about {
@@ -383,7 +396,7 @@ li {
   color: var(--color-orange-200);
 }
 .p-class {
-  max-width: 400px;
+  min-width: 200px;
   color: var(--color-white-300);
   cursor: pointer;
   transition: all 0.2s ease-in;
@@ -398,6 +411,9 @@ li {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
   padding: 30px;
+}
+.cards-about-me {
+  padding: 40px;
 }
 
 .header-about {
@@ -567,6 +583,51 @@ li {
 .card-detail > h3 {
   text-align: center;
 }
+.contact-me{
+  height: 100vh;
+}
+.box-class {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--color-black-300);
+  padding: 15px;
+  border-radius: 15px;
+  gap: 30px;
+}
+.contact {
+  text-align: center;
+}
+.box-gmail {
+  display: flex;
+}
+.box-gmail {
+  text-align: center;
+}
+.box-gmail > p {
+  font-size: var(--font-size-100);
+  margin-left: 10px;
+}
+.nav-contact {
+  display: none;
+  justify-content: center;
+  font-size: var(--font-size-200);
+  gap: 30px;
+}
+.nav-contact > a {
+  color: var(--color-black-300);
+  letter-spacing: 2px;
+}
+.nav-contact > a:hover {
+  color: var(--color-orange-200);
+}
+
 
 @media screen and (min-width: 600px) {
   .nav-list {
@@ -575,7 +636,7 @@ li {
     top: 50px;
     transform: translateX(-50%);
     margin: 0;
-    max-width: 550px;
+    max-width: 570px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -597,9 +658,17 @@ li {
   .cards-job {
     flex-direction: row;
   }
-  .class-ex {
-    flex-direction: row;
+  .section-experience {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
   }
+  .class-ex {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   /* .class-frontend-bankend {
     flex-direction: row;
     flex-wrap: wrap;
@@ -627,18 +696,17 @@ li {
     flex-wrap: nowrap;
     align-items: center;
   }
-  /* .project-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  } */
+
   .project-cards {
     grid-template-columns: repeat(2, 270px);
   }
   .name-nav {
     display: none;
   }
+  .nav-contact {
+  display: flex;
+
+}
 }
 @media screen and (min-width: 768px) {
   .name-nav {
@@ -646,6 +714,9 @@ li {
     position: fixed;
     top: 71.6px;
     /* /* z-index: 1;  */
+  }
+  .cards-experience {
+    grid-template-columns: repeat(2, 1fr);
   }
   .name-nav:hover {
     color: var(--color-orange-100);
